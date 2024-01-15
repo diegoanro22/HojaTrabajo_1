@@ -3,6 +3,12 @@
  *Diego Rosales - 23258
 */
 
-public class IRadio {
-    
+public interface IRadio {
+    void saveStation();
+    boolean isAM();
+    boolean isON();
+    double selectStation();
+    void switchOnOff();
+    void switchAmFm();
+    double nextStation();
 }
