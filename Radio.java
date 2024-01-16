@@ -5,7 +5,6 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.Objects;
 
 //Atributos y listas
@@ -30,7 +29,8 @@ public class Radio {
     public Radio() {
         state = false;
         aM = true;
-
+        stationAM = 530;
+        stationFM = 87.9;
     }
 
     public boolean isState() {
@@ -128,7 +128,6 @@ public boolean isOn(){
         System.out.println("El radio esta apagado");
         return false;
     }
-
 }
 
 
@@ -144,10 +143,9 @@ public void switchOnOff(){
         state = false;
         System.out.println("Radio apagado");
         System.exit(0);
-        
-
     }
 }
+
 
 /**El metodo verifica si el radio esta en la estacion AM o FM
  * @param aM
@@ -172,5 +170,41 @@ public void switchAMFM() {
         System.out.println("Cambiado a Estación FM");
     }
 }
+
+/** Metodo para cambiar de estacion
+ * @retun double
+ */
+public double nextStation(){
+    boolean am = isAM();
+    if (am){
+        stationAM+=10;
+        if (stationAM>1610){
+            stationAM=530;
+            System.out.println(stationAM);
+            return stationAM;
+        }else{
+            System.out.println(stationAM);
+            return stationAM;
+        }
+    }
+    else{
+        stationFM+=0.2;
+        if (stationFM>108){
+            stationFM = 87.9;
+            System.out.println(stationFM);
+            return stationFM;
+        }else{
+            System.out.println(stationFM);
+            return stationFM;
+        }
+    }
+}
+
+
+
+
+
+
+
 
 }

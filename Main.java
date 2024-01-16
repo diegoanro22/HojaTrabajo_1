@@ -42,7 +42,17 @@ public class Main{
                     
                     else {
                         Radio.switchAMFM();
-                        break;}
+                    }
+                        break;
+                    
+                case 3:
+                    if (!Radio.isOn()) {
+                        System.exit(0);}
+                    
+                    else {
+                        Radio.nextStation();
+                    }
+                        break;
 
                 case 6: 
                     if (Radio.isOn()) {
@@ -58,13 +68,7 @@ public class Main{
                     System.out.println("La opcion no es valida");
                     opcion = 2;
                     break;
-            }
-        
-        
-
-
-            
+            }            
         }
-
         }
 }
