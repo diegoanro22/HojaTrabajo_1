@@ -120,12 +120,14 @@ public class Radio {
 /**Metodo para verificar si el radio esta encendido u apagado
  * @param state
  */
-public boolean isOn(boolean state){
+public boolean isOn(){
     if (state == true){
         return true;
     }
     else {
+        System.out.println("El radio esta apagado");
         return false;
+        
     }
 
 }
@@ -137,16 +139,21 @@ public boolean isOn(boolean state){
 public void switchOnOff(){
     if (state == false){
         state = true;
+        System.out.println("Radio encendido");
     }
     else if (state == true){
         state = false;
+        System.out.println("Radio apagado");
+        System.exit(0);;
+        
+
     }
 }
 
 /**El metodo verifica si el radio esta en la estacion AM o FM
  * @param AM
  */
-public boolean isAM(boolean aM){
+public boolean isAM(){
     if (aM == true){
         return true;
     }
@@ -158,9 +165,14 @@ public boolean isAM(boolean aM){
 /**Metodo para cambiar de estacion de AM a FM
  *@return void
  */
-public void switchAMFM(){
+public void switchAMFM() {
+    aM = !aM; 
     
-
+    if (aM) {
+        System.out.println("Cambiado a Estación AM");
+    } else {
+        System.out.println("Cambiado a Estación FM");
+    }
 }
 
 }
