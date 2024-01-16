@@ -175,28 +175,18 @@ public void switchAMFM() {
  * @retun double
  */
 public double nextStation(){
-    boolean am = isAM();
-    if (am){
-        stationAM+=10;
-        if (stationAM>1610){
-            stationAM=530;
-            System.out.println(stationAM);
-            return stationAM;
-        }else{
-            System.out.println(stationAM);
-            return stationAM;
+    if (isAM()) {
+        stationAM += 10;
+        if (stationAM > 1610) {
+            stationAM = 530;
         }
-    }
-    else{
-        stationFM+=0.2;
-        if (stationFM>108){
+        return stationAM;
+    } else {
+        stationFM += 0.2;
+        if (stationFM > 108) {
             stationFM = 87.9;
-            System.out.println(stationFM);
-            return stationFM;
-        }else{
-            System.out.println(stationFM);
-            return stationFM;
         }
+        return stationFM;
     }
 }
 

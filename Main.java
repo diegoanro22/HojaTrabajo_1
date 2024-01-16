@@ -50,7 +50,7 @@ public class Main{
                         System.exit(0);}
                     
                     else {
-                        Radio.nextStation();
+                        System.out.println(String.format("%.1f", Radio.nextStation()));
                     }
                         break;
 
