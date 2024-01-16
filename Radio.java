@@ -5,6 +5,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 
 //Atributos y listas
@@ -13,8 +14,8 @@ public class Radio {
     private boolean aM;
     private double stationAM;
     private double stationFM;
-    private ArrayList<Double> stationsAM = new ArrayList<>();
-    private ArrayList<Double> stationsAF = new ArrayList<>();
+    private ArrayList<Double> stationsAM = new ArrayList<>(Collections.nCopies(12, 0.0));
+    private ArrayList<Double> stationsAF = new ArrayList<>(Collections.nCopies(12, 0.0));
 
 //Constructor
     public Radio(boolean state, boolean aM, double stationAM, double stationFM, ArrayList<Double> stationsAM, ArrayList<Double> stationsAF) {
@@ -175,33 +176,26 @@ public void switchAMFM() {
  * @retun double
  */
 public double nextStation(){
-    boolean am = isAM();
-    if (am){
-        stationAM+=10;
-        if (stationAM>1610){
-            stationAM=530;
-            System.out.println(stationAM);
-            return stationAM;
-        }else{
-            System.out.println(stationAM);
-            return stationAM;
+    if (isAM()) {
+        stationAM += 10;
+        if (stationAM > 1610) {
+            stationAM = 530;
         }
-    }
-    else{
-        stationFM+=0.2;
-        if (stationFM>108){
+        System.out.println(stationAM);
+        return stationAM;
+    } else {
+        stationFM += 0.2;
+        if (stationFM > 108) {
             stationFM = 87.9;
-            System.out.println(stationFM);
-            return stationFM;
-        }else{
-            System.out.println(stationFM);
-            return stationFM;
         }
+        System.out.println(stationFM);
+        return stationFM;
     }
 }
 
-
-
+public void saveStation(int buttonId, double station){
+    
+}
 
 
 
