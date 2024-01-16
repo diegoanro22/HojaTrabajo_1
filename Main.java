@@ -21,10 +21,11 @@ public class Main{
             System.out.println("2. Cambiar estación AM/FM");
             System.out.println("3. Avanzar de emisora");
             System.out.println("4. Guardar emisora");
-            System.out.println("5. Reproducir emosora guardada");
+            System.out.println("5. Reproducir emisora guardada");
             System.out.println("6. Apagar radio");
             System.out.println("-----------------------------------------------------------");
             int menuInicial = teclado.nextInt();
+            teclado.nextLine();
 
             switch (menuInicial) {
                 case 1:
@@ -53,6 +54,23 @@ public class Main{
                         Radio.nextStation();
                     }
                         break;
+
+                case 4:
+                    if (!Radio.isOn()) {
+                        System.exit(0);}
+                    
+                    else {
+                        System.out.println("Ingrese número de boton a guardar: ");
+                        if (Radio.isAM()){
+                            int buttonId= Integer.parseInt(teclado.nextLine());
+                            Radio.saveStation(buttonId, Radio.getStationAM());
+                        }else{
+                            int buttonId= Integer.parseInt(teclado.nextLine());
+                            Radio.saveStation(buttonId, Radio.getStationFM());
+                        }
+                    }
+                    break;
+
 
                 case 6: 
                     if (Radio.isOn()) {
