@@ -16,11 +16,12 @@ public class Main{
         while (true) {
             System.out.println("-----------------------------------------------------------");
             System.out.println("Radio");
-            System.out.println("1. On/Off");
+            System.out.println("1. Encender radio");
             System.out.println("2. Cambiar estación AM/FM");
             System.out.println("3. Avanzar de emisora");
             System.out.println("4. Guardar emisora");
             System.out.println("5. Reproducir emosora guardada");
+            System.out.println("6. Apagar radio");
             System.out.println("-----------------------------------------------------------");
 
             int menuInicial = teclado.nextInt();
@@ -36,7 +37,6 @@ public class Main{
                         System.exit(0);}
                     
                     else {
-                        miRadio.isAM();
                         miRadio.switchAMFM();
                         break;}
                 default:
@@ -48,4 +48,8 @@ public class Main{
         }
 
         }
-    }
+
+
+
+
+}

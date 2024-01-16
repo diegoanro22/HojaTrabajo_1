@@ -127,7 +127,6 @@ public boolean isOn(){
     else {
         System.out.println("El radio esta apagado");
         return false;
-        
     }
 
 }
@@ -144,14 +143,14 @@ public void switchOnOff(){
     else if (state == true){
         state = false;
         System.out.println("Radio apagado");
-        System.exit(0);;
+        System.exit(0);
         
 
     }
 }
 
 /**El metodo verifica si el radio esta en la estacion AM o FM
- * @param AM
+ * @param aM
  */
 public boolean isAM(){
     if (aM == true){
@@ -167,7 +166,6 @@ public boolean isAM(){
  */
 public void switchAMFM() {
     aM = !aM; 
-    
     if (aM) {
         System.out.println("Cambiado a Estación AM");
     } else {
