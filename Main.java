@@ -10,10 +10,11 @@ import java.util.Scanner;
 public class Main{
     public static void main(String[] args){
         Scanner teclado = new Scanner(System.in);
-        Radio miRadio = new Radio();
+        Radio Radio = new Radio();
+        int opcion = 1;
 
 
-        while (true) {
+        while (opcion == 1) {
             System.out.println("-----------------------------------------------------------");
             System.out.println("Radio");
             System.out.println("1. Encender radio");
@@ -23,33 +24,47 @@ public class Main{
             System.out.println("5. Reproducir emosora guardada");
             System.out.println("6. Apagar radio");
             System.out.println("-----------------------------------------------------------");
-
             int menuInicial = teclado.nextInt();
 
             switch (menuInicial) {
                 case 1:
-                    miRadio.isOn();
-                    miRadio.switchOnOff();
+                    if (!Radio.isOn()) {
+                        Radio.switchOnOff();
+                        System.out.println("Radio encendido");
+                    } else {
+                        System.out.println("El radio ya está encendido");
+                    }
                     break;
 
                 case 2:
-                    if (!miRadio.isOn()) {
+                    if (!Radio.isOn()) {
                         System.exit(0);}
                     
                     else {
-                        miRadio.switchAMFM();
+                        Radio.switchAMFM();
                         break;}
-                default:
+
+                case 6: 
+                    if (Radio.isOn()) {
+                        Radio.switchOnOff();
+                        System.out.println("Radio apagado");
+                    } else {
+                        System.out.println("El radio ya está apagado");
+                        opcion = 2;
+                    }
+                    break;
+                
+                    default:
+                    System.out.println("La opcion no es valida");
+                    opcion = 2;
                     break;
             }
+        
+        
 
 
             
         }
 
         }
-
-
-
-
 }
