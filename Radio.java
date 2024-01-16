@@ -5,6 +5,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
 
 //Atributos y listas
@@ -13,17 +14,17 @@ public class Radio {
     private boolean aM;
     private double stationAM;
     private double stationFM;
-    private ArrayList<Double> stationsAM = new ArrayList<>();
-    private ArrayList<Double> stationsAF = new ArrayList<>();
+    private ArrayList<Double> stationsAM = new ArrayList<>(Collections.nCopies(12, 0.0));
+    private ArrayList<Double> stationsFM = new ArrayList<>(Collections.nCopies(12, 0.0));
 
 //Constructor
-    public Radio(boolean state, boolean aM, double stationAM, double stationFM, ArrayList<Double> stationsAM, ArrayList<Double> stationsAF) {
+    public Radio(boolean state, boolean aM, double stationAM, double stationFM, ArrayList<Double> stationsAM, ArrayList<Double> stationsFM) {
         this.state = state;
         this.aM = aM;
         this.stationAM = stationAM;
         this.stationFM = stationFM;
         this.stationsAM = stationsAM;
-        this.stationsAF = stationsAF;
+        this.stationsFM = stationsFM;
     }
 
     public Radio() {
@@ -78,11 +79,11 @@ public class Radio {
     }
 
     public ArrayList<Double> getStationsAF() {
-        return this.stationsAF;
+        return this.stationsFM;
     }
 
-    public void setStationsAF(ArrayList<Double> stationsAF) {
-        this.stationsAF = stationsAF;
+    public void setStationsAF(ArrayList<Double> stationsFM) {
+        this.stationsFM = stationsFM;
     }
 
     public Radio state(boolean state) {
@@ -137,11 +138,9 @@ public boolean isOn(){
 public void switchOnOff(){
     if (state == false){
         state = true;
-        System.out.println("Radio encendido");
     }
     else if (state == true){
         state = false;
-        System.out.println("Radio apagado");
         System.exit(0);
     }
 }
@@ -186,12 +185,26 @@ public double nextStation(){
         if (stationFM > 108) {
             stationFM = 87.9;
         }
+        System.out.println(stationFM);
         return stationFM;
     }
 }
 
-
-
+public void saveStation(int buttonId, double station){
+    if (isAM()){
+        if (buttonId>0 && buttonId<=12){
+            stationsAM.set(buttonId-1, station);
+        }else{
+            System.out.println("Ingreso un boton fuera de rango");
+        }
+    }else{
+        if (buttonId>0 && buttonId<=12){
+            stationsFM.set(buttonId-1, station);
+        }else{
+            System.out.println("Ingreso un boton fuera de rango");
+        }
+    }
+}
 
 
 
