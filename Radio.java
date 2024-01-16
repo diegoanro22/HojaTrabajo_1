@@ -28,6 +28,9 @@ public class Radio {
     }
 
     public Radio() {
+        state = false;
+        aM = true;
+
     }
 
     public boolean isState() {
@@ -117,80 +120,46 @@ public class Radio {
 /**Metodo para verificar si el radio esta encendido u apagado
  * @param state
  */
-public static void isOn(boolean state){
+public boolean isOn(boolean state){
     if (state == true){
-        System.out.print("El radio esta encendio");
+        return true;
+    }
+    else {
+        return false;
     }
 
-    else if (state == false){
-        System.out.println("El radio esta apagado");
-    }
 }
 
 
 /**Metodo para encender y apagar el radio
  * @return void
  */
-public static void switchOnOff(){
-    System.out.println("Precione el boton segun lo que desee");
-    System.out.println("1. On");
-    System.out.println("2. Off");
-    int menuInicial = teclado.nextInt();
-
-    switch (menuInicial) {
-        case 1:
-            state = true;
-            System.out.println("El radio esta encendido");
-            break;
-        
-            case 2:
-            state = false;
-            System.out.println("El radio esta apagado");
-    
-        default:
-            System.out.println("El boton seleccionado no pertenece a la lista de opciones");
-            break;
+public void switchOnOff(){
+    if (state == false){
+        state = true;
     }
-
+    else if (state == true){
+        state = false;
+    }
 }
 
 /**El metodo verifica si el radio esta en la estacion AM o FM
  * @param AM
  */
-public static void isAM(boolean AM){
-    if (AM == true){
-        System.out.println("El radio esta en la estación AM");
+public boolean isAM(boolean aM){
+    if (aM == true){
+        return true;
     }
-    else if (AM == false){
-        System.out.println("El radio esta en la estación FM");
+    else {
+        return false;
     }
-
 }
 
 /**Metodo para cambiar de estacion de AM a FM
  *@return void
  */
-public static void switchAMFM(){
-    System.out.println("Selecciones la estación");
-    System.out.println("1. AM");
-    System.out.println("2. FM");
-    int selectorEstacion = teclado.nextInt();
-
-    switch (selectorEstacion) {
-        case 1:
-            System.out.println("Esta en la estación AM");
-            System.out.println("Actualmente se encuentra en la frecuencia" + buttonAM.get(0));
-            break;
-
-        case 2: 
-            System.out.println("Esta en la estacion FM");
-            System.out.println("Actualmente se encuentra en la frecuencia" + buttonFM.get(0));
-            break;
+public void switchAMFM(){
     
-        default:
-            System.out.println("La opcion seleccionada no esta en la lista de opciones");
-            break;
-    }
 
 }
 
