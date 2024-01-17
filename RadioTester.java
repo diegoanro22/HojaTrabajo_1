@@ -30,9 +30,11 @@ public class RadioTester {
     }
 
     // Prueba 2: Verificar que nextStation hace que la estación vuelva al principio después de alcanzar el final    @Test
+    @Test
     public void testNextStationWrapsAround() {
+        int callsNeeded = (1610 - 530) / 10 + 1;  
         // Act
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < callsNeeded; i++) {
             double previousStation = radio.nextStation();
         }
 
