@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Objects;
 
 //Atributos y listas
-public class Radio {
+public class Radio implements IRadio {
     private boolean state;
     private boolean aM;
     private double stationAM;
@@ -126,7 +126,6 @@ public boolean isOn(){
         return true;
     }
     else {
-        System.out.println("El radio esta apagado");
         return false;
     }
 }
@@ -157,11 +156,6 @@ public boolean isAM(){
  */
 public void switchAMFM() {
     aM = !aM; 
-    if (aM) {
-        System.out.println("Cambiado a Estación AM");
-    } else {
-        System.out.println("Cambiado a Estación FM");
-    }
 }
 
 /** Metodo para cambiar de estacion
@@ -189,20 +183,26 @@ public double nextStation(){
  */
 public void saveStation(int buttonId, double station){
     if (isAM()){
-        if (buttonId>0 && buttonId<=12){
-            stationsAM.set(buttonId-1, station);
-        }else{
-            System.out.println("Ingreso un boton fuera de rango");
-        }
+        stationsAM.set(buttonId-1, station);
     }else{
-        if (buttonId>0 && buttonId<=12){
-            stationsFM.set(buttonId-1, station);
-        }else{
-            System.out.println("Ingreso un boton fuera de rango");
-        }
+        stationsFM.set(buttonId-1, station);
     }
 }
 
+
+/**Metodo para mostrar la estacion guardada en un boton
+ * @return double
+ * @param buttonID 
+ */
+
+public double selectStation(int buttonId){
+    if (isAM()){
+        return stationsAM.get(buttonId - 1);
+    }else{
+        return stationsFM.get(buttonId-1);
+    }
+    
+}
 
 
 

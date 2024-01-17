@@ -39,14 +39,21 @@ public class Main{
 
                 case 2:
                     if (!Radio.isOn()) {
+                        System.out.println("Radio apagado");
                         System.exit(0);}
                     else {
                         Radio.switchAMFM();
+                        if (Radio.isAM()) {
+                            System.out.println("Cambiado a Estación AM");
+                        } else {
+                            System.out.println("Cambiado a Estación FM");
+                        }
                     }
                         break;
                     
                 case 3:
                     if (!Radio.isOn()) {
+                        System.out.println("Radio apagado");
                         System.exit(0);}
                     else {
                         System.out.println(String.format("%.1f", Radio.nextStation()));
@@ -55,18 +62,42 @@ public class Main{
 
                 case 4:
                     if (!Radio.isOn()) {
+                        System.out.println("Radio apagado");
                         System.exit(0);}
                     else {
                         System.out.println("Ingrese número de boton a guardar: ");
                         if (Radio.isAM()){
                             int buttonId= Integer.parseInt(teclado.nextLine());
-                            Radio.saveStation(buttonId, Radio.getStationAM());
+                            if (buttonId>0 && buttonId<=12){
+                                Radio.saveStation(buttonId, Radio.getStationAM());
+                            }else{
+                                System.out.println("Número de botón no válido");
+                            }
                         }else{
                             int buttonId= Integer.parseInt(teclado.nextLine());
-                            Radio.saveStation(buttonId, Radio.getStationFM());
+                            if (buttonId>0 && buttonId<=12){
+                                Radio.saveStation(buttonId, Radio.getStationFM());
+                            }else{
+                                System.out.println("Número de botón no válido ");
+                            }
                         }
                     }
                     break;
+
+                case 5:
+                if (!Radio.isOn()) {
+                    System.out.println("Radio apagado");
+                    System.exit(0);}
+                else{
+                    System.out.println("Ingrese número de boton: ");
+                    int buttonId= Integer.parseInt(teclado.nextLine());
+                    if (buttonId>0 && buttonId<=12){
+                        System.out.println(String.format("%.1f",Radio.selectStation(buttonId)));
+                    }else{
+                        System.out.println("Botón no válido");
+                    }
+                }
+                break;
 
 
                 case 6: 

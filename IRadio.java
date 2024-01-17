@@ -4,11 +4,11 @@
 */
 
 public interface IRadio {
-    void saveStation();
+    void saveStation(int buttonId, double statio);
     boolean isAM();
-    boolean isON();
-    double selectStation();
+    boolean isOn();
+    double selectStation(int buttonId);
     void switchOnOff();
-    void switchAmFm();
+    void switchAMFM();
     double nextStation();
 }
