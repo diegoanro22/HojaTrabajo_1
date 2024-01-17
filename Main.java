@@ -40,7 +40,6 @@ public class Main{
                 case 2:
                     if (!Radio.isOn()) {
                         System.exit(0);}
-                    
                     else {
                         Radio.switchAMFM();
                     }
@@ -49,7 +48,6 @@ public class Main{
                 case 3:
                     if (!Radio.isOn()) {
                         System.exit(0);}
-                    
                     else {
                         System.out.println(String.format("%.1f", Radio.nextStation()));
                     }
@@ -58,7 +56,6 @@ public class Main{
                 case 4:
                     if (!Radio.isOn()) {
                         System.exit(0);}
-                    
                     else {
                         System.out.println("Ingrese número de boton a guardar: ");
                         if (Radio.isAM()){
@@ -76,6 +73,7 @@ public class Main{
                     if (Radio.isOn()) {
                         Radio.switchOnOff();
                         System.out.println("Radio apagado");
+                        System.exit(0);
                     } else {
                         System.out.println("El radio ya está apagado");
                         opcion = 2;

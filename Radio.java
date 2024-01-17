@@ -136,13 +136,7 @@ public boolean isOn(){
  * @return void
  */
 public void switchOnOff(){
-    if (state == false){
-        state = true;
-    }
-    else if (state == true){
-        state = false;
-        System.exit(0);
-    }
+    state = !state;
 }
 
 
@@ -185,11 +179,14 @@ public double nextStation(){
         if (stationFM > 108) {
             stationFM = 87.9;
         }
-        System.out.println(stationFM);
         return stationFM;
     }
 }
 
+
+/** Metodo para guardar la estacion en un boton
+ * @return void
+ */
 public void saveStation(int buttonId, double station){
     if (isAM()){
         if (buttonId>0 && buttonId<=12){
